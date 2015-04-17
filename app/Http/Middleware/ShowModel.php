@@ -13,10 +13,9 @@ class ShowModel {
 	 */
 	public function handle($request, Closure $next)
 	{
-		$response = $next($request);
 		$model = $this->getAction($request);
 		print_r($model->slug);
-		return $response;
+		return $next($request);
 	}
 
 	private function getAction($request)
