@@ -1,11 +1,11 @@
 <?php
 
-if (App::environment('local')) {
+if ($app->environment('local')) {
 	$host      = env('DB_HOST', '127.0.0.1');
 	$database  = env('DB_DATABASE', 'followbug');
 	$username  = env('DB_USERNAME', 'root');
 	$password  = env('DB_PASSWORD', 'root');
-} elseif (App::environment('production')) {
+} elseif ($app->environment('production')) {
 	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 	$host = $url["host"];
