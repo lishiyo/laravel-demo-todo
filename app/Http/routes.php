@@ -11,8 +11,11 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+/*
+By default, the RouteServiceProvider includes your routes.php file within a namespace group, allowing you to register controller routes without specifying the full App\Http\Controllers namespace prefix.
 
+ */
+Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
 
 Route::controllers([
@@ -20,11 +23,22 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
+/*
+If it becomes necessary to add additional routes to a resource controller beyond the default resource routes, you should define those routes before your call to Route::resource:
+
+Route::get('photos/popular', 'PhotoController@method');
+ */
+
 Route::resource('projects', 'ProjectsController');
-// nest
+// projects/{projects}/tasks/{tasks}
 Route::resource('projects.tasks', 'TasksController');
 
-// friendly ids
+// Bind models to routes - L4 way
+// L5 way - see Providers/RouteServiceProvider
+// Route::model('tasks', 'Task');
+// Route::model('projects', 'Project');
+
+// friendly ids - use slugs rather than ids
 Route::bind('tasks', function($value, $route) {
 	return App\Task::whereSlug($value)->first();
 });

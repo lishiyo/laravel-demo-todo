@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Project;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -12,9 +13,16 @@ class ProjectsController extends Controller {
 	 *
 	 * @return Response
 	 */
+
+	public function __construct()
+	{
+		$this->middleware('showModel', ['only' => 'show']);
+	}
+
 	public function index()
 	{
-		//
+		$projects = Project::all();
+		return view('projects.index', compact('projects'));
 	}
 
 	/**
@@ -24,7 +32,7 @@ class ProjectsController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('projects.create');
 	}
 
 	/**
@@ -40,32 +48,33 @@ class ProjectsController extends Controller {
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $id
+	 * @param  int  Project $project
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Project $project)
 	{
-		//
+		// {"id":1,"created_at":"2015-04-16 01:47:24","updated_at":"2015-04-16 01:47:24","name":"Project 1","slug":"project-1"}
+		return view('projects.show', compact('project'));
 	}
 
 	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * @param  int  $id
+	 * @param  int  Project $project
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit(Project $project)
 	{
-		//
+		return view('projects.edit', compact('project'));
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int  $id
+	 * @param  int  Project $project
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Project $project)
 	{
 		//
 	}
@@ -73,10 +82,10 @@ class ProjectsController extends Controller {
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param  int  $id
+	 * @param  int  Project $project
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Project $project)
 	{
 		//
 	}

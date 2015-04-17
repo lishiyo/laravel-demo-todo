@@ -19,7 +19,7 @@ class CreateProjectsAndTasksTable extends Migration {
 			$table->string('name')->default('');
 			$table->string('slug')->default('');
 		});
-		
+
 		Schema::create('tasks', function(Blueprint $table){
 			$table->increments('id');
 			$table->timestamps();
@@ -39,8 +39,8 @@ class CreateProjectsAndTasksTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('projects');
 		Schema::drop('tasks');
+		Schema::drop('projects');
 	}
 
 }

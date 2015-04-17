@@ -24,7 +24,9 @@ class RouteServiceProvider extends ServiceProvider {
 	{
 		parent::boot($router);
 
-		//
+		// Bind models to routes - L5
+		$router->model('project', 'App\Project');
+		$router->model('task', 'App\Task');
 	}
 
 	/**
