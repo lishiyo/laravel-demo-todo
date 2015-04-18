@@ -17,6 +17,7 @@ By default, the RouteServiceProvider includes your routes.php file within a name
  */
 Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
+Route::get('oauth_tumblr', ['as' => 'tumblr', 'uses' => 'WelcomeController@loginWithTumblr']);
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

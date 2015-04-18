@@ -40,7 +40,9 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<a href="{{ url('/home') }}">Login/Signup</a>
+				{!! link_to_route('tumblr', 'Oauth with Tumblr') !!}
+<!-- 				<a href="/oauth_tumblr?go=go">Oauth Tumblr</a>
+ -->				<a href="{{ url('/home') }}">Login/Signup</a>
 				<div class="title">Laravel 5</div>
 				<div class="quote">{{ Inspiring::quote() }}</div>
 			</div>

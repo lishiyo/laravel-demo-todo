@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "23265c1ae3257194e9329d30307c8ded",
+    "hash": "32e14621beba57bcc0788f11981445c9",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -523,57 +523,6 @@
                 }
             ],
             "time": "2014-07-14 20:59:35"
-        },
-        {
-            "name": "jenssegers/oauth",
-            "version": "v1.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jenssegers/laravel-oauth.git",
-                "reference": "55b6bd49a4d109f81cdac4efbc603b4aeb8f8623"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jenssegers/laravel-oauth/zipball/55b6bd49a4d109f81cdac4efbc603b4aeb8f8623",
-                "reference": "55b6bd49a4d109f81cdac4efbc603b4aeb8f8623",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "4.*|5.0.*",
-                "lusitanian/oauth": "*",
-                "php": ">=5.4"
-            },
-            "require-dev": {
-                "mockery/mockery": "*",
-                "orchestra/testbench": "2.2.*",
-                "satooshi/php-coveralls": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Jenssegers\\OAuth\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Hannes Van De Vreken",
-                    "homepage": "http://hannesv.be"
-                },
-                {
-                    "name": "Jens Segers",
-                    "homepage": "http://jenssegers.be"
-                }
-            ],
-            "description": "Laravel OAuth library based on Lusitanian/PHPoAuthLib",
-            "keywords": [
-                "laravel",
-                "oauth"
-            ],
-            "time": "2014-11-05 22:25:58"
         },
         {
             "name": "jeremeamia/SuperClosure",
