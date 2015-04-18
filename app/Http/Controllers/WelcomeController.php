@@ -55,34 +55,21 @@ class WelcomeController extends Controller {
 		        $_GET['oauth_verifier'],
 		        $tokenSecret
 		    );
-			// public function request($path, $method = 'GET', $body = null, array $extraHeaders = array());
-		    $result = json_decode($tumblrService->request('tagged?tag=gif', 'GET', null, array(), true));
-		    // $result = json_decode($tumblrService->request('user/info', 'GET', null));
-		    // Send a request now that we have access token => returns json
-		    // $consumerKey = env('TUMBLR_client_id');
-		    // $consumerSecret = env('TUMBLR_client_secret');
-		    // $client = new tumblrMain\Client($consumerKey, $consumerSecret);
+			// public function request($path, $method = 'GET', $body = null, array $extraHeaders = array(), $attachApiKey = false);
+			$api_key = env('TUMBLR_client_id');
+			$tag = 'daredevil';
+			$limit = 100;
 
+			$queryStr = "api_key={$api_key}&tag={$tag}&limit={$limit}";
+		    $result = json_decode($tumblrService->request("tagged?" . $queryStr, 'GET'), true);
 
-		 //    $requestHandler = $client->getRequestHandler();
-			// $requestHandler->setBaseUrl('http://www.tumblr.com/');
-		 //    $resp = $requestHandler->request('POST', 'oauth/access_token', array('oauth_verifier' => $_GET['oauth_verifier'], 'oauth_token' => $_GET['oauth_token']));
-
-		 //    $out = $resp->body;
-			// $data = array();
-			// parse_str($out, $data);
-			// var_dump($resp);
-			// var_dump($data);
-			// $new_token = $data["oauth_token"];
-			// $new_secret = $data["oauth_token_secret"];
-			// echo $new_token . " plus " . $new_secret;
-
-			// $client->setToken('DRu3uG7TCLSinji6iljpauoeawgTvklX9hmmKGZvaNc6iSicEs', 'LiFuSgpPEaqR9Lm3ktBRhhT3IYJcCOqYfIhzcYyh6jWFQEQbuR');
-
-		 //    $result = $client->getUserInfo();
-
-		    echo '<pre>' . print_r($result, true) . '</pre>';
-
+		    $res = ($result["response"]);
+		    foreach($res as $index => $post) {
+		    	 echo '<pre> blog_name: ' . print_r($post["blog_name"], true) . '</pre>' . "\n";
+		    	 echo '<pre> note count: ' . print_r($post["note_count"], true) . '</pre>' . "\n";
+		    	 echo '<pre> followed: ' . print_r($post["followed"], true) . '</pre>' . "\n";
+		    	 echo '<pre> timestamp: ' . print_r($post["timestamp"], true) . '</pre>' . "\n";
+		    }
 
 
 		}  else {
